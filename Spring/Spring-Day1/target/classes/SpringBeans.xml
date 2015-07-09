@@ -1,0 +1,14 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="account" class="com.taggy.spring.context.Account"  lazy-init="true">
+		<property name="name" value="HDFC" />
+	</bean>
+	
+	<bean id="helloBean" name ="bean1,bean2" class="com.taggy.spring.context.Loan"  lazy-init="true">
+		<property name="account" ref="account" />
+	</bean>
+
+</beans>

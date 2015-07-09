@@ -1,0 +1,53 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="parentAccount" class="com.taggy.spring.beaninheritence.Account">
+		<property name="personalLoan">
+			<bean id="personalLoan" class="com.taggy.spring.beaninheritence.Loan">
+				<property name="loanType" value="Tier 1"></property>
+			</bean>
+		</property>
+		
+		<property name="loans">
+			<list>
+			<bean id="personalLoan1" class="com.taggy.spring.beaninheritence.Loan">
+				<property name="loanType" value="Tier 1"></property>
+			</bean>
+			</list>
+		</property>
+		
+	</bean>
+
+	<bean id="account" class="com.taggy.spring.beaninheritence.Account"
+		parent="parentAccount">
+		<property name="carLoan">
+			<bean id="carLoan" class="com.taggy.spring.beaninheritence.Loan">
+				<property name="loanType" value="Tier 2"></property>
+			</bean>
+		</property>
+
+		<property name="homeLoan">
+			<bean id="homeLoan" class="com.taggy.spring.beaninheritence.Loan">
+				<property name="loanType" value="Home"></property>
+			</bean>
+		</property>
+		
+		
+		<property name="loans">
+			<list merge="true">
+			<bean id="carLoan1" class="com.taggy.spring.beaninheritence.Loan">
+				<property name="loanType" value="Tier 2"></property>
+			</bean>
+			
+			<bean id="homeLoan1" class="com.taggy.spring.beaninheritence.Loan">
+				<property name="loanType" value="Home"></property>
+			</bean>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+</beans>
