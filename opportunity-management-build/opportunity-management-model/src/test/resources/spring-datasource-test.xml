@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+      http://www.springframework.org/schema/beans 
+      http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+      http://www.springframework.org/schema/context 
+      http://www.springframework.org/schema/context/spring-context-4.3.xsd
+      http://www.springframework.org/schema/tx
+	 http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+
+	<!-- This is for hibernate stats -->
+	<bean id="opmSessionFactory" factory-bean="entityManagerFactory"
+		factory-method="getSessionFactory"></bean>
+
+
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="opmDataSource" />
+		<property name="persistenceUnitName" value="opm" />
+		<property name="packagesToScan" value="org.opportunity.management.model" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.connection.useUnicode">true</prop><!-- supports snanish and chinese characters -->
+				<prop key="hibernate.connection.characterEncoding">UTF-8</prop>
+				<prop key="hibernate.connection.charSet">UTF-8</prop>
+				<prop key="hibernate.connection.useUnicode">true</prop>
+				<prop key="hibernate.connection.generate_statistics">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="opmDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"></property>
+		<property name="username" value="HR"></property>
+		<property name="password" value="oracle"></property>
+	</bean>
+
+	<!-- use jndi entry for datasource -->
+<!-- 	<bean id="opmDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/OPMDS"></property>
+	</bean>
+ -->
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<tx:annotation-driven />
+
+	<bean id="persistenceExceptionTranslationPostProcessor"
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+</beans>
