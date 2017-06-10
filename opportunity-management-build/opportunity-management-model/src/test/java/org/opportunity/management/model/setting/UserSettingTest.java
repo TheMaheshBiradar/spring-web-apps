@@ -1,14 +1,19 @@
 package org.opportunity.management.model.setting;
 
-import static org.junit.Assert.*;
+import org.opportunity.management.model.AbstractEntityPKIntegrationTest;
+import org.opportunity.management.model.setting.UserSetting.PK;
 
-import org.junit.Test;
+public class UserSettingTest extends AbstractEntityPKIntegrationTest<UserSetting, UserSetting.PK> {
 
-public class UserSettingTest {
+	@Override
+	protected PK getEntityPK2() {
+		return new UserSetting.PK("1", "USA");
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
+	}
+
+	@Override
+	protected PK getEntityPK1() {
+		return new UserSetting.PK("2", "USA");
 	}
 
 }

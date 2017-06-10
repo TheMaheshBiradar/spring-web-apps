@@ -5,6 +5,10 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 /**
  * Data Object for User setting.
  * 
@@ -73,6 +77,40 @@ public class UserSetting extends Setting<UserSetting.PK> {
 
 		public void setUserId(String userId) {
 			this.userId = userId;
+		}
+
+		@Override
+		public int hashCode() {
+			return new HashCodeBuilder().append(this.getClass()).append(this.getUserId()).append(this.getName())
+					.build();
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+
+			if (obj == null) {
+				return false;
+			}
+
+			if (obj == this) {
+				return true;
+			}
+
+			if (!(obj instanceof PK)) {
+
+				return false;
+			}
+
+			PK id = (PK) obj;
+
+			return new EqualsBuilder().append(this.getName(), id.getName()).append(this.getUserId(), id.getUserId())
+					.build();
+		}
+
+		@Override
+		public String toString() {
+			return new ToStringBuilder(this).append(this.getUserId()).append(this.getName()).toString();
+
 		}
 
 	}
