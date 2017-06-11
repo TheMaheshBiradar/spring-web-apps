@@ -1,4 +1,4 @@
-package org.opportunity.management.services;
+package org.opportunity.management.service;
 
 /**
  * Hello world!

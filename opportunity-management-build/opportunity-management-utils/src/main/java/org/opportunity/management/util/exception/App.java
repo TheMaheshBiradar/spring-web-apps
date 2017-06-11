@@ -1,4 +1,4 @@
-package org.opportunity.management.utils;
+package org.opportunity.management.util.exception;
 
 /**
  * Hello world!
