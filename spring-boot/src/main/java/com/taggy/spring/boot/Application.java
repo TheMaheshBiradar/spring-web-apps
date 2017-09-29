@@ -21,6 +21,11 @@ public class Application {
     @Value("${user}")
     private String name;
 
+
+    @Value("{'${address.login}'.substring(1,'${address.login}'.length()-1)}")
+    private String url;
+
+
     @Autowired
     private String text;
 
@@ -28,6 +33,13 @@ public class Application {
     public String sayHello(){
 
         return "Hi "+name +text;
+    }
+
+
+    @RequestMapping(path ="/url")
+    public String getUrl(){
+
+        return url;
     }
     public static void main(String [] args){
 

@@ -1,0 +1,16 @@
+server:
+  port: 9090
+  context-path: /spring-boot
+
+lastname: Biradar
+user: M.D ${lastname}
+
+address:
+  login: https://hiding.my.url.com/bank/auth/login
+
+
+#to enable actuator endpoints
+management:
+  security:
+    enabled: false
+

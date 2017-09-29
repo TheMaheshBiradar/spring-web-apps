@@ -1,0 +1,66 @@
+{
+	"variables": [],
+	"info": {
+		"name": "spring-boot",
+		"_postman_id": "7fb9a571-1bca-15c1-82dd-7b6c0b64e846",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:9090/spring-boot/metrics",
+			"request": {
+				"url": "http://localhost:9090/spring-boot/metrics",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "provides the metrics of the server"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9090/spring-boot/env",
+			"request": {
+				"url": "http://localhost:9090/spring-boot/env",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "get environment details using actuator"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9090/spring-boot/mappings",
+			"request": {
+				"url": "http://localhost:9090/spring-boot/mappings",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "checks bean mappings"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9090/spring-boot/trace",
+			"request": {
+				"url": "http://localhost:9090/spring-boot/trace",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "traces kast 100 requests"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9090/spring-boot/health",
+			"request": {
+				"url": "http://localhost:9090/spring-boot/health",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "check health  of the disk"
+			},
+			"response": []
+		}
+	]
+}
