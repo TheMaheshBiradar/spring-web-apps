@@ -14,3 +14,16 @@ management:
   security:
     enabled: false
 
+
+
+myrandom:
+  number: ${random.int}
+  string: ${random.value}
+
+
+spring:
+  profiles:
+    active: prod
+
+my:
+  message : this is message from confifuration with prefix
