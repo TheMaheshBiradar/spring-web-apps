@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.persistence.EntityManager;
@@ -18,8 +19,11 @@ import java.net.URL;
 @RestController
 public class HealthCheckApplication {
 
+    //TODO - move this to services with transaction ready only MUST
     @PersistenceContext
     private EntityManager entityManager;
+
+
 
     public ConfigurationStatusUrlConfiguration getUserDetails() {
         ConfigurationStatusUrlConfiguration config = entityManager.find(ConfigurationStatusUrlConfiguration.class
@@ -35,17 +39,13 @@ public class HealthCheckApplication {
 	}
 
 	@RequestMapping(path ="/health-check")
-	public String randomNumber() throws IOException {
+	public String healthCheck() throws IOException {
 
+        RestTemplate restTemplate =new RestTemplate();
 
-    	URL url=new URL("https://google.com");
-        HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
-        InputStream inputStream=conn.getInputStream();
+        return "OK";
 
-
-
-    	return "OK" +conn.getResponseCode();
-	}
+    }
 
 
 }
