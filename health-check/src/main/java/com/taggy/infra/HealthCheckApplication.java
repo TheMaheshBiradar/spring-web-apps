@@ -18,6 +18,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Objects;
 
 @SpringBootApplication
 @RestController
@@ -38,6 +39,10 @@ public class HealthCheckApplication {
         ConfigurationStatusUrlConfiguration config = entityManager.find(ConfigurationStatusUrlConfiguration.class
                 , new ConfigurationStatusUrlConfiguration("GOOG", "PROD", "https://google.com"));
 
+        if(Objects.isNull(config)){
+            throw new IllegalArgumentException("component configuration can not be null");
+        }
+
         return config;
     }
 
@@ -53,18 +58,24 @@ public class HealthCheckApplication {
         /* RestTemplate restTemplate =new RestTemplate
         (); */
 
-        ConfigurationStatusUrlConfiguration getComponentDetail = this.getComponentDetails();
         StringBuilder status =new StringBuilder("Component : ");
 
-        status.append(getComponentDetail.getComponentId());
-        status.append(" ");
-        status.append(" Status");
-
         try {
+            ConfigurationStatusUrlConfiguration getComponentDetail = this.getComponentDetails();
+
+            status.append(getComponentDetail.getComponentId());
+            status.append(" ");
+            status.append(" Status");
+
             HttpsURLConnection httpsConnection = httpsConnectionFactory.getHttpsConnection(getComponentDetail.getUrl());
             InputStream inputStream = httpsConnection.getInputStream();
-            //set timeout for socket and read as we can not wait till end
+
+
             //todo read json from manifest response
+
+            httpsConnection.setConnectTimeout(2000);
+            httpsConnection.setReadTimeout(2000);
+
             status.append(httpsConnection.getResponseCode());
 
         } catch (Exception e) {
