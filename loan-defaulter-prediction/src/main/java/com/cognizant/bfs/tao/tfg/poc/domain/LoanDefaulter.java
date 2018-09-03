@@ -17,19 +17,19 @@ public class LoanDefaulter implements Serializable {
   private static final long serialVersionUID = 1L;
 
   private String            gender;
-  private Float             age;
-  private Float             debtAmount;
+  private String            age;
+  private String            debtAmount;
   private String            married;
   private String            bankCustomer;
-  private Integer           educateLevel;
+  private String            educateLevel;
   private String            enthinicity;
-  private Float             yearsEmployed;
-  private Integer           priorDefault;
+  private String            yearsEmployed;
+  private String            priorDefault;
   private String            employed;
-  private Integer           creditScore;
+  private String            creditScore;
   private String            citizen;
   private String            zipcode;
-  private Integer           income;
+  private String            income;
 
   public String getGender() {
     return this.gender;
@@ -39,19 +39,19 @@ public class LoanDefaulter implements Serializable {
     this.gender = gender;
   }
 
-  public Float getAge() {
+  public String getAge() {
     return this.age;
   }
 
-  public void setAge(final Float age) {
+  public void setAge(final String age) {
     this.age = age;
   }
 
-  public Float getDebtAmount() {
+  public String getDebtAmount() {
     return this.debtAmount;
   }
 
-  public void setDebtAmount(final Float debtAmount) {
+  public void setDebtAmount(final String debtAmount) {
     this.debtAmount = debtAmount;
   }
 
@@ -71,11 +71,11 @@ public class LoanDefaulter implements Serializable {
     this.bankCustomer = bankCustomer;
   }
 
-  public Integer getEducateLevel() {
+  public String getEducateLevel() {
     return this.educateLevel;
   }
 
-  public void setEducateLevel(final Integer educateLevel) {
+  public void setEducateLevel(final String educateLevel) {
     this.educateLevel = educateLevel;
   }
 
@@ -87,19 +87,19 @@ public class LoanDefaulter implements Serializable {
     this.enthinicity = enthinicity;
   }
 
-  public Float getYearsEmployed() {
+  public String getYearsEmployed() {
     return this.yearsEmployed;
   }
 
-  public void setYearsEmployed(final Float yearsEmployed) {
+  public void setYearsEmployed(final String yearsEmployed) {
     this.yearsEmployed = yearsEmployed;
   }
 
-  public Integer getPriorDefault() {
+  public String getPriorDefault() {
     return this.priorDefault;
   }
 
-  public void setPriorDefault(final Integer priorDefault) {
+  public void setPriorDefault(final String priorDefault) {
     this.priorDefault = priorDefault;
   }
 
@@ -111,11 +111,11 @@ public class LoanDefaulter implements Serializable {
     this.employed = employed;
   }
 
-  public Integer getCreditScore() {
+  public String getCreditScore() {
     return this.creditScore;
   }
 
-  public void setCreditScore(final Integer creditScore) {
+  public void setCreditScore(final String creditScore) {
     this.creditScore = creditScore;
   }
 
@@ -135,11 +135,11 @@ public class LoanDefaulter implements Serializable {
     this.zipcode = zipcode;
   }
 
-  public Integer getIncome() {
+  public String getIncome() {
     return this.income;
   }
 
-  public void setIncome(final Integer income) {
+  public void setIncome(final String income) {
     this.income = income;
   }
 

@@ -92,9 +92,9 @@ class DefaulterForm extends React.Component {
         super(props);
 
         this.state = {
-                gender: 'M', age: '', debtAmount: '', married: 'married', bankCustomer: 'yes', 
-                educateLevel: '1', enthinicity: '', yearsEmployed: '', priorDefault: '', 
-                employed: 'yes',creditScore: '', citizen: 'y', zipcode: '', income: ''
+                gender: '', age: '', debtAmount: '', married: '', bankCustomer: '', 
+                educateLevel: '', enthinicity: '', yearsEmployed: '', priorDefault: '', 
+                employed: '',creditScore: '', citizen: '', zipcode: '', income: ''
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -118,17 +118,18 @@ class DefaulterForm extends React.Component {
             <form className="card card-block bg-faded" onSubmit={this.handleSubmit}>
                 <legend className="m-b-1 text-xs-center">Loand Defaulter Prediction</legend>
 
-                <div className="form-group has-float-label">
-                    <select id="gender" value={this.state.gender} className="form-control custom-select" onChange={this.handleChange}>
-                        <option value="M">Male</option>
-                        <option value="F">Female</option>
-                    </select>
-                    <span>Gender</span>
+			    <div className="form-group input-group">
+                    <span className="has-float-label">
+                        <input  value={this.state.gender} className="form-control" id="gender" type="text" placeholder="Enter Your Gender" onChange={this.handleChange} />
+                        <label for="gender">Gender</label>
+                    </span>
                 </div>
+			
+
 
                 <div className="form-group input-group">
                     <span className="has-float-label">
-                        <input  value={this.state.age} className="form-control" id="age" type="number" placeholder="Enter your age" onChange={this.handleChange} />
+                        <input  value={this.state.age} className="form-control" id="age" type="text" placeholder="Enter your age" onChange={this.handleChange} />
                         <label for="age">Age</label>
                     </span>
                 </div>
@@ -136,39 +137,33 @@ class DefaulterForm extends React.Component {
 
                 <div className="form-group input-group">
                     <span className="has-float-label">
-                        <input className="form-control" value={this.state.debtAmount} id="debtAmount" type="number" placeholder="Debt Amount" onChange={this.handleChange} />
+                        <input className="form-control" value={this.state.debtAmount} id="debtAmount" type="text" placeholder="Debt Amount" onChange={this.handleChange} />
                         <label for="debtAmount">Debt Amount</label>
                     </span>
                 </div>
 
 
-                <div className="form-group has-float-label">
-                    <select id="married" value={this.state.married}  className="form-control custom-select" onChange={this.handleChange}>
-                        <option  value="married">Married</option>
-                        <option value="unmarried">Unmarried</option>
-                    </select>
-                    <span>Married</span>
+                <div className="form-group input-group">
+                    <span className="has-float-label">
+                        <input className="form-control" value={this.state.married} id="married" type="text" placeholder="Marital Status" onChange={this.handleChange} />
+                        <label for="married">Marital Status</label>
+                    </span>
                 </div>
 
-                <div className="form-group has-float-label">
-                    <select id="bankCustomer"  value={this.state.bankCustomer} className="form-control custom-select" onChange={this.handleChange}>
-                        <option  value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                    <span>Bank Customer</span>
+			     <div className="form-group input-group">
+                    <span className="has-float-label">
+                        <input className="form-control" value={this.state.bankCustomer} id="bankCustomer" type="text" placeholder="Is a Bank Customer" onChange={this.handleChange} />
+                        <label for="bankCustomer">Bank Customer</label>
+                    </span>
                 </div>
-
-
-                <div className="form-group has-float-label">
-                    <select id="educateLevel"  value={this.state.educateLevel}  className="form-control custom-select" onChange={this.handleChange}>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                    <span>Educate Level</span>
+			
+			     <div className="form-group input-group">
+                    <span className="has-float-label">
+                        <input className="form-control" value={this.state.educateLevel} id="educateLevel" type="text" placeholder="Educate Level" onChange={this.handleChange} />
+                        <label for="educateLevel">Educate Level</label>
+                    </span>
                 </div>
-
+			
                 <div className="form-group input-group">
                     <span className="has-float-label">
                         <input className="form-control"  value={this.state.enthinicity} id="enthinicity" type="text" placeholder="Enthinicity" onChange={this.handleChange} />
@@ -181,7 +176,7 @@ class DefaulterForm extends React.Component {
 
                 <div className="form-group input-group">
                     <span className="has-float-label">
-                        <input className="form-control"  value={this.state.yearsEmployed} id="yearsEmployed" type="number" placeholder="Years Employed" onChange={this.handleChange} />
+                        <input className="form-control"  value={this.state.yearsEmployed} id="yearsEmployed" type="text" placeholder="Years Employed" onChange={this.handleChange} />
                         <label for="yearsEmployed">Years Employed</label>
                     </span>
                 </div>
@@ -189,35 +184,36 @@ class DefaulterForm extends React.Component {
 
                 <div className="form-group input-group">
                     <span className="has-float-label">
-                        <input className="form-control"  value={this.state.priorDefault} id="priorDefault" type="number" placeholder="Prior Default" onChange={this.handleChange} />
+                        <input className="form-control"  value={this.state.priorDefault} id="priorDefault" type="text" placeholder="Prior Default" onChange={this.handleChange} />
                         <label for="priorDefault">Prior Default</label>
                     </span>
                 </div>
 
 
-                <div className="form-group has-float-label">
-                    <select id="employed" value={this.state.employed} className="form-control custom-select" onChange={this.handleChange}>
-                        <option  value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                    <span>Employed</span>
-                </div>
 
+				                <div className="form-group input-group">
+                    <span className="has-float-label">
+                        <input className="form-control"  value={this.state.employed} id="employed" type="text" placeholder="Is Employed" onChange={this.handleChange} />
+                        <label for="employed">Employed</label>
+                    </span>
+                </div>
+				
                 <div className="form-group input-group">
                     <span className="has-float-label">
-                        <input className="form-control" value={this.state.creditScore} id="creditScore" type="number" placeholder="Credit Score" onChange={this.handleChange} />
+                        <input className="form-control" value={this.state.creditScore} id="creditScore" type="text" placeholder="Credit Score" onChange={this.handleChange} />
                         <label for="creditScore">Credit Score</label>
                     </span>
                 </div>
-
-
-                <div className="form-group has-float-label">
-                    <select id="citizen"  value={this.state.citizen}  className="form-control custom-select" onChange={this.handleChange}>
-                        <option  value="y">Yes</option>
-                        <option value="n">No</option>
-                    </select>
-                    <span>Citizen</span>
+                
+                	
+                <div className="form-group input-group">
+                    <span className="has-float-label">
+                        <input className="form-control" value={this.state.citizen} id="citizen" type="text" placeholder="Is Citizen" onChange={this.handleChange} />
+                        <label for="citizen">Citizen</label>
+                    </span>
                 </div>
+
+                
 
 
                 <div className="form-group input-group">
